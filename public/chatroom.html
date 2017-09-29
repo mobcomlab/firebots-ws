@@ -33,26 +33,17 @@
                 <div id="logout">Logout</div>
             </div>
         </div>
-        <ol class="chat">
-            <li class="other">
-                <!--<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div>-->
-                <div>Sender</div>
+        <ol id="chat" class="chat">
+            <div id="no_message" class="center">Not have message.</div>
+
+            <li id="outgoing" class="self hidden">
                 <div class="msg">
-                    <p>Hola!</p>
-                    <p>Te vienes a cenar al centro? </p>
-                    <time>20:17</time>
-                </div>
-            </li>
-            <li class="self">
-                <div class="msg">
-                    <p>Puff...</p>
-                    <p>Aún estoy haciendo el contexto de Góngora...</p>
-                    <p>Mejor otro día</p>
-                    <time>20:18</time>
+                    <p id="text_outgoing"></p>
+                    <time id="time_outgoing"></time>
                 </div>
             </li>
         </ol>
-        <input class="textarea" type="text" placeholder="Type here!"/><div class="send"><span>Send</span></div>
+        <input class="textarea" type="text" placeholder="Write a message…"/><div class="send">Send</div>
         <!-- END CHAT-->
     </div>
 
