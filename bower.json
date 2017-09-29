@@ -1,0 +1,46 @@
+{
+  "name": "parentshero-admin-ws",
+  "authors": [
+    "Pawat <ohmygodood@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "animate.css": "3.5.2",
+    "animo.js": "ThrivingKings/animo.js#1.0.2",
+    "blueimp-file-upload": "9.12.5",
+    "datatables": "1.10.12",
+    "datatables-colvis": "1.1.2",
+    "dataTables.fontAwesome": "https://cdn.datatables.net/plug-ins/1.10.10/integration/font-awesome/dataTables.fontAwesome.css",
+    "datatables-buttons": "1.2.2",
+    "datatables-responsive": "2.1.0",
+    "eonasdan-bootstrap-datetimepicker": "4.17.42",
+    "fontawesome": "4.6.3",
+    "html.sortable": "0.4.2",
+    "jQuery-Storage-API": "1.9.2",
+    "jquery": "2.2.4",
+    "jquery-localize-i18n": "*",
+    "jquery-ui": "1.12.0",
+    "jquery.easing": "1.3.1",
+    "fileUploader": "3.7.1",
+    "modernizr": "https://modernizr.com/download?backgroundsize-bgpositionshorthand-bgpositionxy-bgrepeatspace_bgrepeatround-bgsizecover-borderradius-cssanimations-csscalc-csstransforms-csstransforms3d-csstransitions-flexboxtweener-fontface-inlinesvg-localstorage-multiplebgs-preserve3d-sessionstorage-smil-svgclippaths-svgfilters-svgforeignobject-todataurljpeg_todataurlpng_todataurlwebp-setclasses&q=background.zip",
+    "moment": "2.15.0",
+    "nestable": "*",
+    "parsleyjs": "2.4.4",
+    "simple-line-icons": "2.3.2",
+    "slimScroll": "1.3.8",
+    "sweetalert": "1.1.3",
+    "whirl": "1.0.0",
+    "qrious": "3.0.0"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FireBots</title>
+
+    <!-- FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-database.js"></script>
+  </head>
+  <body>
+    <script>
+
+        window.location = "auth.html";
+//        firebase.auth().onAuthStateChanged(function(user){
+//            if (user) {
+//                var userRef = firebase.database().ref('user').child(user.uid);
+//                userRef.once('value').then(function (snapshot) {
+//                    var user = snapshot.val();
+//                    if(user.type === 'admin'){
+//                        //window.location = "activity_current.html";
+//                    }else {
+//                        signOut();
+//                        window.location = "auth.html";
+//                    }
+//                });
+//            } else {
+//                window.location = "auth.html";
+//            }
+//        });
+
+        function signOut() {
+            firebase.auth().signOut();
+        }
+    </script>
+  </body>
+</html>

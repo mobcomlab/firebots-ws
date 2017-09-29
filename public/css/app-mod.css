@@ -1,0 +1,252 @@
+/* ========================================================================
+   Angle CSS mod - topnavbar
+ ========================================================================== */
+.topnavbar {
+    background-color: #ffffff;
+}
+.topnavbar .navbar-header {
+    background-image: linear-gradient(to right, #4285F4 0%, #4285F4 100%);
+}
+
+/* CSS of Tag a */
+.topnavbar .navbar-nav > li > a, .topnavbar .navbar-nav > .open > a {
+    color: #F4B400 !important;
+}
+.topnavbar .navbar-nav > li > a:hover,
+.topnavbar .navbar-nav > .open > a:hover,
+.topnavbar .navbar-nav > li > a:focus,
+.topnavbar .navbar-nav > .open > a:focus {
+    color: #F4B400;
+}
+
+@media only screen and (min-width: 768px) {
+    .topnavbar {
+        background-image: linear-gradient(to right, #4285F4 0%, #4285F4 100%);
+    }
+    /* CSS of Tag a */
+    .topnavbar .navbar-nav > li > a {
+        color: #fff !important;
+    }
+    .topnavbar .navbar-nav > .open > a,
+    .topnavbar .navbar-nav > .open > a:hover,
+    .topnavbar .navbar-nav > .open > a:focus {
+        box-shadow: 0 -3px 0 #F4B400 inset;
+    }
+    .topnavbar .navbar-nav > li > a:hover,
+    .topnavbar .navbar-nav > .open > a:hover,
+    .topnavbar .navbar-nav > li > a:focus,
+    .topnavbar .navbar-nav > .open > a:focus {
+        color: #ededed !important;
+    }
+}
+
+/* CSS of validation */
+.parsley-errors-list.filled {
+    display: none;
+}
+
+
+
+/* ========================================================================
+   Angle CSS mod - sidebar
+ ========================================================================== */
+/* CSS of Tag a */
+.sidebar > .nav > li > a:focus,
+.sidebar > .nav > li > .nav-item:focus,
+.sidebar > .nav > li > a:hover,
+.sidebar > .nav > li > .nav-item:hover {
+    text-decoration: none;
+    outline: none;
+    color: #F4B400; }
+
+
+
+
+/* ========================================================================
+   App CSS - Activity form
+ ========================================================================== */
+.activity-form, .activity-form > .col-lg-12 > .form-horizontal > .panel > .panel-body > fieldset > legend, select {
+    color: #808080 !important;
+}
+
+/* google map */
+#googleMap {
+    height: 250px;
+}
+
+.jFiler-theme-default .jFiler-input {
+    width: 100% !important;
+}
+.jFiler-items-grid .jFiler-item-assets .jFiler-item-trash-action:hover, .jFiler-items-default .jFiler-item-assets .jFiler-item-trash-action:active {
+    color: #d9534f;
+    text-decoration: none !important;
+}
+
+.jFiler-items-grid .jFiler-item .jFiler-item-container {
+    margin: 0 10px 10px 0 !important;
+}
+.jFiler-items-grid .jFiler-item .jFiler-item-container .jFiler-item-thumb {
+    width: 128px !important;
+    height: 100px !important;
+}
+
+.activity-image>.jFiler>.jFiler-items>.row>.col-lg-12>.jFiler-items-list>.jFiler-item>.jFiler-item-container>.jFiler-item-inner>.jFiler-item-assets {
+    display: none !important;
+}
+
+.size-recommend {
+    font-size: 13px;
+}
+
+
+
+/* ========================================================================
+   App CSS - Activity booking
+ ========================================================================== */
+.content-heading>.activity-name {
+    display: inline-block !important;
+    font-size: 15px !important;
+}
+
+/* ========================================================================
+   App CSS - Sweet alert
+ ========================================================================== */
+
+.sweet-alert button {
+    font-size: 15px;
+    padding: 4px 24px;
+    margin: 0px 5px 0 5px;
+}
+.sweet-alert h2 {
+    margin: 15px 0 15px 0;
+}
+
+.sweet-alert>fieldset {
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.sweet-alert>.sa-button-container {
+    margin-bottom: 15px;
+}
+
+.sweet-alert .la-ball-fall {
+    margin-top: -8px;
+}
+
+@media (max-width: 568px) {
+    .sweet-alert .sa-icon {
+        width: 256px !important;
+        height: 343px !important;
+    }
+}
+
+/* ========================================================================
+   App CSS - Button Switch
+ ========================================================================== */
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 26px;
+    background-color: #5d9cec;
+    color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 20px;
+    background-color: #f47f7f;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 56px;
+    -moz-transition: all 0.3s ease-in 0s;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+
+/* ========================================================================
+   App CSS - Users
+ ========================================================================== */
+.label-type-normal {
+    padding: 0.2em 1.4em 0.3em;
+}
+.label-type-school {
+    padding: 0.2em 1.6em 0.3em;
+}
+.label-type-admin {
+    padding: 0.2em 1.6em 0.3em;
+}
+.h4-16 {
+    font-size: 16px;
+}
+
+
+/* ========================================================================
+   App CSS - School form
+ ========================================================================== */
+.school-form, .school-form > .col-lg-12 > .form-horizontal > .panel > .panel-body > fieldset > legend, select {
+    color: #808080 !important;
+}
