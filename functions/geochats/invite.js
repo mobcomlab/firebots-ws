@@ -14,17 +14,15 @@ exports.invite = (event) => {
 
     return database.ref('user').once('value').then(function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
-            console.log(childSnapshot);
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
 
-            // const childKey = childSnapshot.key;
-            // const childData = childSnapshot.val();
-            //
-            // console.log(childKey);
-            // console.log(childData);
-            //
-            // if(childData['lat'] && childData['long']) {
-            //     console.log(distanceBetween(locationLat, locationLong, childData['lat'], childData['long']))
-            // }
+            console.log(childKey);
+            console.log(childData);
+
+            if(childData['lat'] && childData['long']) {
+                console.log(distanceBetween(locationLat, locationLong, childData['lat'], childData['long']))
+            }
         });
     });
 };
