@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 /public/bower_components
+/node_modules
 
 .idea
 *.log
