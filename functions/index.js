@@ -6,6 +6,7 @@ admin.initializeApp(functions.config().firebase);
 
 const chatroomObserverModule = require('./chatroomObserver');
 
-const database = admin.database();
-
 exports.messageCreated = functions.database.ref('chatroom/message/{pushId}').onCreate(chatroomObserverModule.chatroomMessageCreatedHandler);
+
+// Test only
+exports.resetDb = functions.database.ref('test/reset').onCreate(require('./test/resetDb').resetDb);
