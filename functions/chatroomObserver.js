@@ -1,6 +1,6 @@
-const admin = require('firebase-admin'); // The Firebase Admin SDK to access the Firebase Realtime Database.
+'use strict';
 
-const database = admin.database();
+const admin = require('firebase-admin');
 
 exports.chatroomMessageCreatedHandler = (event) => {
     const messageID = event.params.pushId;
@@ -16,6 +16,7 @@ exports.chatroomMessageCreatedHandler = (event) => {
             senderName: 'FireBots'
         };
 
+        const database = admin.database();
         return database.ref('chatroom').child('message')
             .push().set(newMessage)
             .then(() => {
