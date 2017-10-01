@@ -3,19 +3,30 @@ var noMessage = document.getElementById('no_message');
 var chat = document.getElementById('chat');
 var message = {};
 var userID;
-var userName;
+var name;
+var chatID;
 
 function observeUser() {
-    var user = firebase.auth().currentUser;
-    if(user !== null){
-        userID = user.uid;
-    }else {
-        signOutPressed();
-    }
+    var unsubscribe = firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            userID = user.uid;
+            var userRef = firebase.database().ref().child('user').child(userID);
+            userRef.once('value').then(function (snapshot)  {
+                var  isUser = snapshot.val();
+                name = isUser['username'];
+                username.innerHTML = name;
+                dismissIndicator();
+            });
+        } else {
+            signOutPressed();
+            unsubscribe();
+        }
+    });
 }
 
 function observeMessage(chatroomID) {
-    var messageRef = firebase.database().ref('chatroom').child(chatroomID).child('message');
+    chatID = chatroomID;
+    var messageRef = firebase.database().ref('chatroom').child(chatID).child('message');
     messageRef.on('child_added', function (snapshot) {
         var message = snapshot.val();
         noMessage.classList.add('hidden');
@@ -25,7 +36,6 @@ function observeMessage(chatroomID) {
             setupOutMessage(message);
         }
         window.scrollTo(0,document.body.scrollHeight);
-        dismissIndicator();
     });
 }
 
@@ -69,11 +79,11 @@ function sendMessage() {
     var dateISO = date.toISOString();
     message['isBot'] = false;
     message['senderId'] = userID;
-    message['senderName'] = userName;
+    message['senderName'] = name;
     message['sendingTime'] = dateISO;
     message['text'] = text.value;
-    var messageID = firebase.database().ref().child('chatroom').child('message').push().key;
-    firebase.database().ref().child('chatroom').child('message').child(messageID).update(message).then(function () {
+    var messageID = firebase.database().ref().child('chatroom').child(chatID).child('message').push().key;
+    firebase.database().ref().child('chatroom').child(chatID).child('message').child(messageID).update(message).then(function () {
         if(text !== null){
             text.value = '';
         }

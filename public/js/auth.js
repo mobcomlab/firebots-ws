@@ -42,6 +42,7 @@ function login() {
                                 if (currentToken) {
                                     console.log(currentToken);
                                     token = currentToken;
+                                    getLocation();
                                 } else {
                                     // Show permission request.
                                     console.log('No Instance ID token available. Request permission to generate one.');
@@ -57,7 +58,6 @@ function login() {
                     .catch(function(err) {
                         console.log('Unable to get permission to notify.', err);
                     });
-                getLocation();
             } else {
                 // User is signed out.
                 // ...
@@ -77,11 +77,13 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    users['username'] = username.value;
-    users['token'] = token;
-    users['lat'] = position.coords.latitude;
-    users['long'] = position.coords.longitude;
-    firebase.database().ref('user').child(userID).update(users).then(function () {
-        window.location = 'chatroom.html?userID=' + userID ;
-    });
+    if(token !== undefined){
+        users['username'] = username.value;
+        users['token'] = token;
+        users['lat'] = position.coords.latitude;
+        users['long'] = position.coords.longitude;
+        firebase.database().ref('user').child(userID).update(users).then(function () {
+            window.location = 'chatroom.html?userID=' + userID ;
+        });
+    }
 }

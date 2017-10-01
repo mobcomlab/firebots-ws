@@ -3,7 +3,7 @@ function checkAuth() {
         if (user) {
             console.log(user.uid)
         } else {
-            signOut();
+            signOutPressed();
             unsubscribe();
         }
     });
