@@ -7,7 +7,8 @@ const database = admin.database();
 
 const bots = {
     welcome: require('../bots/welcomeBot'),
-    kotlin: require('../bots/kotBot')
+    kotlin: require('../bots/kotBot'),
+    helper: require('../bots/helperBot')
 };
 
 exports.chatJoined = (event) => {
