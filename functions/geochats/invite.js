@@ -2,12 +2,11 @@
 
 const admin = require('firebase-admin');
 
+const RANGE = 2;
+
 exports.invite = (event) => {
     const database = admin.database();
     const chatroom = event.data.val();
-
-    console.log(event.params);
-    console.log(chatroom);
 
     const locationLong = chatroom['long'];
     const locationLat = chatroom['lat'];
@@ -17,11 +16,14 @@ exports.invite = (event) => {
             const childKey = childSnapshot.key;
             const childData = childSnapshot.val();
 
-            console.log(childKey);
-            console.log(childData);
+            //console.log(childKey);
+            //console.log(childData);
 
             if(childData['lat'] && childData['long']) {
-                console.log(distanceBetween(locationLat, locationLong, childData['lat'], childData['long']))
+                const distanceFromChat = distanceBetween(locationLat, locationLong, childData['lat'], childData['long']);
+                if(distanceFromChat < RANGE) {
+                    // SEND NOTIFICATION INVITING TO CHAT
+                }
             }
         });
     });
