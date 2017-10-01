@@ -56,28 +56,36 @@ exports.onUserMessage = function(chatRoomId, message) {
         ).then(() => {
                 completeCommand += (lineBreak + command);
                 completeCommand = completeCommand.trim();
-                console.log("Kotlin Executing:" + completeCommand);
+                console.log("Kotlin Executing: " + completeCommand);
 
                 request.post({url: url, headers: headers, body: completeCommand}, function(error, response, body) {
                     let messageText = "I couldn't run that!";
                     if(!error && response.statusCode == 200) {
                         messageText = body;
 
-                        if(command.includes("import")) {
-                            let history = {
-                                seq: new Date().toISOString(),
-                                command: command
-                            };
+                        const commandLines = command.split(["\r\n", "\n\r", "\r", "\n"]);
+                        commandLines.forEach((t) => {
+                            const toSave = t.trim();
 
-                            database.ref('chatroom').child(chatRoomId).child('bots').child('kotbot').child('imports').push().set(history);
-                        } else {
-                            let history = {
-                                seq: new Date().toISOString(),
-                                command: command
-                            };
+                            if(toSave === "" || toSave.startsWith("print")) {
+                                // Ignore
+                            }
+                            else if(toSave.startsWith("import")) {
+                                let history = {
+                                    seq: new Date().toISOString(),
+                                    command: toSave
+                                };
 
-                            database.ref('chatroom').child(chatRoomId).child('bots').child('kotbot').child('commands').push().set(history);
-                        }
+                                database.ref('chatroom').child(chatRoomId).child('bots').child('kotbot').child('imports').push().set(history);
+                            } else {
+                                let history = {
+                                    seq: new Date().toISOString(),
+                                    command: toSave
+                                };
+
+                                database.ref('chatroom').child(chatRoomId).child('bots').child('kotbot').child('commands').push().set(history);
+                            }
+                        });
                     }
 
                     if(messageText === "") { messageText = "done"; }
