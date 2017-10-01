@@ -83,13 +83,29 @@ function setupOutMessage(message) {
 
 function inputKeyUp(event){
     event.which = event.which || event.keyCode;
-    if(event.which === 13){
-        sendMessage();
+
+    switch(event.which) {
+        case 13:
+            sendMessage();
+            break;
+
+        case 38:
+            setMessage(previousMessage);
+            break;
+
+        case 40:
+            setMessage("");
+            break;
+
     }
 }
 
+var previousMessage = "";
+
 function sendMessage() {
     var text = document.getElementById('text_input');
+    previousMessage = text.value;
+
     var date = new Date();
     var dateISO = date.toISOString();
     message['isBot'] = false;
@@ -104,4 +120,8 @@ function sendMessage() {
         }
         window.scrollTo(0,document.body.scrollHeight);
     });
+}
+
+function setMessage(message) {
+    document.getElementById('text_input').value = message;
 }
