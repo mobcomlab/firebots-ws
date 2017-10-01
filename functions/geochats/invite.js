@@ -57,7 +57,8 @@ function sendNotification(registrationToken, chatroomID) {
         notification: {
             title: "You have invitation to chatroom.",
             body: "You want to join this chatroom?",
-            badge: "0"
+            badge: "0",
+            click_action: "https://firebots.mobcomlab.com/chat.html?chatroomID=" + chatroomID
         },
         data: {
             type: 'chatroomInvitation',
