@@ -13,3 +13,14 @@ messaging.onMessage(function(payload) {
     // [END_EXCLUDE]
 });
 // [END receive_message]
+
+function appendMessage(payload) {
+    const messagesElement = document.createElement('div');
+    const dataHeaderELement = document.createElement('h5');
+    const dataElement = document.createElement('pre');
+    dataElement.style = 'overflow-x:hidden;';
+    dataHeaderELement.textContent = 'Received message:';
+    dataElement.textContent = JSON.stringify(payload, null, 2);
+    messagesElement.appendChild(dataHeaderELement);
+    messagesElement.appendChild(dataElement);
+}
