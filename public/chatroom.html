@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>FireBots</title>
 
+    <link rel="stylesheet" href="css/auth.css">
     <!-- SWEET ALERT-->
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
     <!-- FONT AWESOME-->
@@ -18,33 +19,12 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/app-mod.css">
     <link rel="stylesheet" href="css/progress-bar.css">
-    <link rel="stylesheet" href="css/chatroom.css">
 
 </head>
 <body>
 
-    <div class="wrapper">
-        <!-- START CHAT-->
-        <div class="menu">
-            <div class="back">
-                <div id="username">Username</div>
-            </div>
-            <div class="logout">
-                <div id="logout">Logout</div>
-            </div>
-        </div>
-        <ol id="chat" class="chat">
-            <div id="no_message" class="center">Not have message.</div>
-
-            <li id="outgoing" class="self hidden">
-                <div class="msg">
-                    <p id="text_outgoing"></p>
-                    <time id="time_outgoing"></time>
-                </div>
-            </li>
-        </ol>
-        <input class="textarea" type="text" placeholder="Write a message…"/><div class="send">Send</div>
-        <!-- END CHAT-->
+    <div style="text-align:center;">
+        <button class="button" type="button" onclick="startChatGeo()">Start chat deo</button>
     </div>
 
     <!-- JQUERY-->

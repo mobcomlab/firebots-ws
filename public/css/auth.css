@@ -217,3 +217,19 @@ body {
         margin: 0 auto;
     }
 }
+
+.button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4d9afc;
+    width: 30%;
+    margin: 100px auto;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all;
+    transition: all ;
+    cursor: pointer;
+}

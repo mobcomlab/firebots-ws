@@ -9,12 +9,6 @@ function checkAuth() {
     });
 }
 
-function signOut() {
-    firebase.auth().signOut();
-    var url = new URL(window.location.href);
-    window.location = "auth.html";
-}
-
 function signOutPressed() {
     var user = firebase.auth().currentUser;
     firebase.database().ref('user').child(user.uid).set(null);
