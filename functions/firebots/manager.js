@@ -15,8 +15,10 @@ exports.chatJoined = (event) => {
     const userId = event.params.userId;
 
     database.ref('user').child(userId).once('value').then(snapshot => {
-        Object.values(bots).forEach(bot => {
-            const user = snapshot.val();
+        const user = snapshot.val();
+
+        Object.keys(bots).forEach(key => {
+            const bot = bots[key];
 
             if(user['isBot']) {
                 return bot.onBotJoined(chatRoomId, user);
@@ -32,7 +34,9 @@ exports.chatMessage = (event) => {
     const chatRoomId = event.params.roomId;
     const message = event.data.val();
 
-    Object.values(bots).forEach(bot => {
+    Object.keys(bots).forEach(key => {
+        const bot = bots[key];
+
         if(message['isBot']) {
             return bot.onBotMessage(chatRoomId, message);
         } else {
