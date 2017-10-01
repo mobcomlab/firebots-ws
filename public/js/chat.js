@@ -82,7 +82,6 @@ function setupOutMessage(message) {
 }
 
 function inputKeyUp(event){
-    console.log("Hello");
     event.which = event.which || event.keyCode;
     if(event.which === 13){
         sendMessage();
