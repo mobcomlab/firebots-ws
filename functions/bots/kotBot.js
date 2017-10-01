@@ -86,7 +86,7 @@ exports.onUserMessage = function(chatRoomId, message) {
                         isBot: true,
                         text: messageText,
                         isFirstMessageOfDate: false,
-                        sendingTime: '2017-09-30T09:47:47.593Z',
+                        sendingTime: new Date().toISOString(),
                         senderId: botId,
                         senderName: "KotBot"
                     };

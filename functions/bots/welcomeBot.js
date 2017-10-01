@@ -13,7 +13,7 @@ exports.onUserJoined = function(chatRoomId, user) {
         isBot: true,
         text: 'Hello ' + user['username'] + '.',
         isFirstMessageOfDate: false,
-        sendingTime: '2017-09-30T09:47:47.593Z',
+        sendingTime: new Date().toISOString(),
         senderId: botId,
         senderName: this.getName()
     };
