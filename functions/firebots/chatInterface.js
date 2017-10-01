@@ -3,12 +3,5 @@ const database = admin.database();
 
 exports.sendMessage = function(bot, chatRoomId, message) {
     return database.ref('chatroom').child(chatRoomId).child('message')
-        .push().set(message)
-        .then(() => {
-            console.log('Sent message');
-        });
-};
-
-exports.requestModal = function(bot, chatRoomId) {
-
+        .push().set(message);
 };

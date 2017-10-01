@@ -22,13 +22,10 @@ exports.onUserJoined = function(chatRoomId, user) {
 };
 
 exports.onBotJoined = function(chatRoomId, user) {
-    console.log("BOT JOINED");
 };
 
 exports.onUserMessage = function(chatRoomId, message) {
-    console.log("USER MESSAGE");
 };
 
 exports.onBotMessage = function(chatRoomId, message) {
-    console.log("BOT MESSAGE");
 };
