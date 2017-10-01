@@ -7,6 +7,7 @@ const RANGE = 2;
 exports.invite = (event) => {
     const database = admin.database();
     const chatroom = event.data.val();
+    const chatroomID = event.params.roomId;
 
     const locationLong = chatroom['long'];
     const locationLat = chatroom['lat'];
@@ -23,6 +24,7 @@ exports.invite = (event) => {
                 const distanceFromChat = distanceBetween(locationLat, locationLong, childData['lat'], childData['long']);
                 if(distanceFromChat < RANGE) {
                     // SEND NOTIFICATION INVITING TO CHAT
+                    sendNotification(childData['token'], chatroomID)
                 }
             }
         });
@@ -49,3 +51,26 @@ const distanceBetween = function(lat1, long1, lat2, long2) {
 
     return R * c; // Distance in km
 };
+
+function sendNotification(registrationToken, chatroomID) {
+    var payload = {
+        notification: {
+            title: "You have invitation to chatroom.",
+            body: "You want to join this chatroom?",
+            badge: "0"
+        },
+        data: {
+            type: 'chatroomInvitation',
+            chatroomID: chatroomID,
+            badge: "0"
+        }
+    };
+
+    admin.messaging().sendToDevice(registrationToken, payload)
+        .then(function(response) {
+            console.log('Successfully sent message:', response);
+        })
+        .catch(function(error) {
+            console.log('Error sending message:', error);
+        });
+}
