@@ -23,7 +23,7 @@ a{
     right: 0px;
     width: 100%;
     height: 50px;
-    background: rgba(82,179,217,0.9);
+    background: #4d9afc;
     z-index: 100;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -45,7 +45,7 @@ a{
 }
 .logout {
      position: absolute;
-     width: 90px;
+     width: 60px;
      height: 50px;
      top: 0px;
      right: 0px;

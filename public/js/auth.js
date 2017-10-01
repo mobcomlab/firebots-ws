@@ -4,6 +4,14 @@ var long = 0;
 var token;
 var userID;
 
+
+function inputKeyUp(event){
+    event.which = event.which || event.keyCode;
+    if(event.which === 13){
+        login();
+    }
+}
+
 function login() {
     //var form = document.getElementById('login-form');
     var username = document.getElementById('username');
