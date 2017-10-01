@@ -67,6 +67,7 @@ function sendMessage() {
     var text = document.getElementById('text_input');
     var date = new Date();
     var dateISO = date.toISOString();
+    message['isBot'] = false;
     message['senderId'] = userID;
     message['senderName'] = userName;
     message['sendingTime'] = dateISO;
