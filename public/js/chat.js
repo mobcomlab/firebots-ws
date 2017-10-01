@@ -49,10 +49,14 @@ function setupInMessage(message) {
     sender.classList.add('sender');
     msg.classList.add('msg');
 
+    var timer = moment(message['sendingTime'], moment.ISO_8601).utcOffset(+7).format("HH:mm");
+
     sender.innerHTML = message['senderName'];
     text.innerHTML = message['text'];
+    time.innerHTML = timer;
 
     msg.appendChild(text);
+    msg.appendChild(time);
     li.appendChild(sender);
     li.appendChild(msg);
     chat.appendChild(li);
@@ -66,9 +70,13 @@ function setupOutMessage(message) {
     li.classList.add('self');
     msg.classList.add('msg');
 
+    var timer = moment(message['sendingTime'], moment.ISO_8601).utcOffset(+7).format("HH:mm");
+
     text.innerHTML = message['text'];
+    time.innerHTML = timer;
 
     msg.appendChild(text);
+    msg.appendChild(time);
     li.appendChild(msg);
     chat.appendChild(li);
 }
