@@ -1,5 +1,8 @@
 'use strict';
 
+const admin = require('firebase-admin');
+const database = admin.database();
+
 // const chat = require('chatInterface');
 
 const bots = {
@@ -7,19 +10,33 @@ const bots = {
    // kotlin: require('../bots/kotBot')
 };
 
-exports.newMessage = (event) => {
+exports.chatJoined = (event) => {
+    const chatRoomId = event.params.roomId;
+    const userId = event.params.userId;
+
+    database.ref('user').child(userId).once('value').then(snapshot => {
+        Object.values(bots).forEach(bot => {
+            const user = snapshot.val();
+
+            if(user['isBot']) {
+                return bot.onBotJoined(chatRoomId, user);
+            } else {
+                return bot.onUserJoined(chatRoomId, user);
+            }
+        })
+    });
+
+};
+
+exports.chatMessage = (event) => {
     const chatRoomId = event.params.roomId;
     const message = event.data.val();
 
-    Object.keys(bots).forEach(key => {
-        const bot = bots[key];
-
+    Object.values(bots).forEach(bot => {
         if(message['isBot']) {
-            console.log('New BOT message');
-            return bot.receiveBotMessage(chatRoomId, message);
+            return bot.onBotMessage(chatRoomId, message);
         } else {
-            console.log('New USER message');
-            return bot.receiveUserMessage(chatRoomId, message);
+            return bot.onUserMessage(chatRoomId, message);
         }
     })
 

@@ -8,10 +8,10 @@ exports.getName = function() {
     return "Welcome Bot";
 };
 
-exports.receiveUserMessage = function(chatRoomId, message) {
+exports.onUserJoined = function(chatRoomId, user) {
     let newMessage = {
         isBot: true,
-        text: 'Hello ' + message['senderName'] + '.',
+        text: 'Hello ' + user['username'] + '.',
         isFirstMessageOfDate: false,
         sendingTime: '2017-09-30T09:47:47.593Z',
         senderId: botId,
@@ -21,6 +21,14 @@ exports.receiveUserMessage = function(chatRoomId, message) {
     return chat.sendMessage(this, chatRoomId, newMessage);
 };
 
-exports.receiveBotMessage = function(chatRoomId, message) {
+exports.onBotJoined = function(chatRoomId, user) {
+    console.log("BOT JOINED");
+};
 
+exports.onUserMessage = function(chatRoomId, message) {
+    console.log("USER MESSAGE");
+};
+
+exports.onBotMessage = function(chatRoomId, message) {
+    console.log("BOT MESSAGE");
 };

@@ -9,7 +9,9 @@ const manager = require('./firebots/manager');
 
 // Triggers
 exports.geochatInvite = functions.database.ref('chatroom/{roomId}').onCreate(geochats.invite);
-exports.messageCreated = functions.database.ref('chatroom/{roomId}/message/{pushId}').onCreate(manager.newMessage);
+
+exports.chatJoined = functions.database.ref('chatroom/{roomId}/user/{userId}').onCreate(manager.chatJoined);
+exports.chatMessage = functions.database.ref('chatroom/{roomId}/message/{pushId}').onCreate(manager.chatMessage);
 
 // Test only
 exports.resetDb = functions.database.ref('test/reset').onCreate(require('./test/resetDb').resetDb);
