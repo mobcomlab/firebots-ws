@@ -22,21 +22,28 @@ exports.onUserMessage = function(chatRoomId, message) {
     const headers = {
         'Content-Type': 'text/plain'
     };
-    request.post({url: url, headers: headers}, function (error, response, body) {
-        let messageText = "I couldn't run that!";
-        if (!error && response.statusCode == 200) {
-            messageText = body;
-        }
-        let newMessage = {
-            isBot: true,
-            text: messageText,
-            isFirstMessageOfDate: false,
-            sendingTime: '2017-09-30T09:47:47.593Z',
-            senderId: botId,
-            senderName: this.getName()
-        };
-        return chat.sendMessage(this, chatRoomId, newMessage);
-    });
+
+    const input = message['text'];
+    if(input.startsWith("!k")) {
+        const command = input.substring(2);
+
+        request.post({url: url, headers: headers, body: command}, function (error, response, body) {
+            let messageText = "I couldn't run that!";
+            if (!error && response.statusCode == 200) {
+                messageText = body;
+            }
+
+            let newMessage = {
+                isBot: true,
+                text: messageText,
+                isFirstMessageOfDate: false,
+                sendingTime: '2017-09-30T09:47:47.593Z',
+                senderId: botId,
+                senderName: "KotBot"
+            };
+            return chat.sendMessage(this, chatRoomId, newMessage);
+        });
+    }
 };
 
 exports.onBotMessage = function(chatRoomId, message) {

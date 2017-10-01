@@ -6,8 +6,8 @@ const database = admin.database();
 // const chat = require('chatInterface');
 
 const bots = {
-    welcome: require('../bots/welcomeBot')
-   // kotlin: require('../bots/kotBot')
+    welcome: require('../bots/welcomeBot'),
+    kotlin: require('../bots/kotBot')
 };
 
 exports.chatJoined = (event) => {
@@ -21,9 +21,9 @@ exports.chatJoined = (event) => {
             const bot = bots[key];
 
             if(user['isBot']) {
-                return bot.onBotJoined(chatRoomId, user);
+                bot.onBotJoined(chatRoomId, user);
             } else {
-                return bot.onUserJoined(chatRoomId, user);
+                bot.onUserJoined(chatRoomId, user);
             }
         })
     });
@@ -38,9 +38,9 @@ exports.chatMessage = (event) => {
         const bot = bots[key];
 
         if(message['isBot']) {
-            return bot.onBotMessage(chatRoomId, message);
+            bot.onBotMessage(chatRoomId, message);
         } else {
-            return bot.onUserMessage(chatRoomId, message);
+            bot.onUserMessage(chatRoomId, message);
         }
     })
 
