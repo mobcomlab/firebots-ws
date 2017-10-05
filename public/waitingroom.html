@@ -24,9 +24,15 @@
 </head>
 <body>
 
-    <div style="text-align:center;">
+    <div class="button-wrapper">
+        <input class="" type="text" id="chatroomName" placeholder="New room name" />
         <button class="button" type="button" onclick="startChatGeo()">Start GeoChat</button>
     </div>
+
+    <div class="button-wrapper">
+        <h4>Or join an existing chatroom:</h4>
+    </div>
+    <div id="rooms"></div>
 
     <!-- JQUERY-->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -46,7 +52,7 @@
     <script src='js/dialog.js'></script>
     <script src='js/checkAuth.js'></script>
     <script src='js/receive_message.js'></script>
-    <script src='js/chatroom.js'></script>
+    <script src='js/waitingroom.js'></script>
     <script type="text/javascript">
         $(document).ready(function () {
             checkAuth();
@@ -65,6 +71,7 @@
                 userID = url.searchParams.get('userID');
             }
             if (userID !== null && userID !== '') {
+                observeChatrooms();
                 observeUser(userID);
             } else {
                 dismissIndicator();

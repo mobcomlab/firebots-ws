@@ -28,10 +28,13 @@
     <!-- START CHAT-->
     <div class="menu">
         <div class="back">
-            <div id="username">Username</div>
+            <div id="roomName">-</div>
         </div>
         <div class="logout">
             <div id="logout" onclick="signOutPressed()">Logout</div>
+        </div>
+        <div class="username">
+            <div id="username"></div>
         </div>
     </div>
     <ol id="chat" class="chat">
@@ -90,6 +93,7 @@
             chatroomID = url.searchParams.get('chatroomID');
         }
         if (chatroomID !== null && chatroomID !== '') {
+            observeChatroomName(chatroomID)
             observeMessage(chatroomID);
         } else {
             dismissIndicator();

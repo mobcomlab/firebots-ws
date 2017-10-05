@@ -83,7 +83,7 @@ function showPosition(position) {
         users['lat'] = position.coords.latitude;
         users['long'] = position.coords.longitude;
         firebase.database().ref('user').child(userID).update(users).then(function () {
-            window.location = 'chatroom.html?userID=' + userID ;
+            window.location = 'waitingroom.html?userID=' + userID ;
         });
     }
 }

@@ -223,8 +223,6 @@ body {
     text-transform: uppercase;
     outline: 0;
     background: #4d9afc;
-    width: 30%;
-    margin: 100px auto;
     border: 0;
     padding: 15px;
     color: #FFFFFF;
@@ -232,4 +230,40 @@ body {
     -webkit-transition: all;
     transition: all ;
     cursor: pointer;
+    text-align:center;
+    width: 100%;
+}
+
+.button-wrapper {
+    width: 30%;
+    margin: 40px auto;
+}
+
+.button-wrapper.single {
+    margin: 100px auto;
+}
+
+.button-wrapper h4 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.button-wrapper input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#rooms {
+    text-align: center;
+}
+#rooms a {
+    background: #aaa1a4;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+#rooms a:hover {
+    text-decoration: none;
+    color: #fff;
 }

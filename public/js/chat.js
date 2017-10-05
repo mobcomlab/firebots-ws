@@ -1,3 +1,4 @@
+var roomName = document.getElementById('roomName');
 var username = document.getElementById('username');
 var noMessage = document.getElementById('no_message');
 var chat = document.getElementById('chat');
@@ -21,6 +22,12 @@ function observeUser() {
             signOutPressed();
             unsubscribe();
         }
+    });
+}
+
+function observeChatroomName(chatroomID) {
+    firebase.database().ref().child('chatroom').child(chatroomID).child('name').once('value').then(function (snapshot)  {
+        roomName.innerHTML = snapshot.val();
     });
 }
 
