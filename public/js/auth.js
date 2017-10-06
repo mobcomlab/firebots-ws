@@ -5,15 +5,15 @@ var token;
 var userID;
 
 function login() {
-    //var form = document.getElementById('login-form');
-    var username = document.getElementById('username');
-    if (username.value === ''){
+    var username = $('#username');
+    if(username.value === '') {
         swal({
             title: "Please enter a Username.",
             confirmButtonText: "OK",
             confirmButtonColor: "#f47f7f"
         });
-    }else {
+    }
+    else {
         showIndicator();
         firebase.auth().signInAnonymously().catch(function(error) {
             // Handle Errors here.
@@ -27,7 +27,7 @@ function login() {
             });
         });
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
+            if(user) {
                 // User is signed in.
                 userID = user.uid;
                 const messaging = firebase.messaging();
@@ -39,7 +39,7 @@ function login() {
                         // TODO(developer): Retrieve an Instance ID token for use with FCM.
                         messaging.getToken()
                             .then(function(currentToken) {
-                                if (currentToken) {
+                                if(currentToken) {
                                     console.log(currentToken);
                                     token = currentToken;
                                     getLocation();
@@ -68,7 +68,7 @@ function login() {
 }
 
 function getLocation() {
-    if (navigator.geolocation) {
+    if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
     } else {
@@ -77,13 +77,13 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    if(token !== undefined){
+    if(token !== undefined) {
         users['username'] = username.value;
         users['token'] = token;
         users['lat'] = position.coords.latitude;
         users['long'] = position.coords.longitude;
-        firebase.database().ref('user').child(userID).update(users).then(function () {
-            window.location = 'waitingroom.html?userID=' + userID ;
+        firebase.database().ref('user').child(userID).update(users).then(function() {
+            window.location = 'waitingroom.html?userID=' + userID;
         });
     }
 }

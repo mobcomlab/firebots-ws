@@ -25,8 +25,10 @@
 <body>
 
     <div class="button-wrapper">
-        <input class="" type="text" id="chatroomName" placeholder="New room name" />
-        <button class="button" type="button" onclick="startChatGeo()">Start GeoChat</button>
+        <form id="start-chat-form" onsubmit="startChatGeo(); return false;">
+            <input class="" type="text" id="chatroomName" placeholder="New room name"/>
+            <button class="button" type="button" onclick="startChatGeo(); return false;">Start GeoChat</button>
+        </form>
     </div>
 
     <div class="button-wrapper">

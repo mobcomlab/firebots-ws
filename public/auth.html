@@ -24,9 +24,9 @@
 <body>
 <div class="login-page">
     <div class="form">
-        <form id="login-form" class="login-form">
-            <input id="username" placeholder="Username"/>
-            <button type="button" onclick="login()">Login</button>
+        <form id="login-form" class="login-form" onsubmit="login(); return false;">
+            <input id="username" placeholder="Pick a username"/>
+            <button type="button" onclick="login(); return false;">Login</button>
         </form>
         <br>
     </div>
