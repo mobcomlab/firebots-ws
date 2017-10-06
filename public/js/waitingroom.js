@@ -14,7 +14,7 @@ function observeUser(uid) {
 
 function observeChatrooms() {
     firebase.database().ref().child('chatroom').on('child_added', function(data) {
-        $('#rooms').append('<a id="'+data.key+'" class="button" href="chat.html?chatroomID='+data.key+'">'+data.val().name+'</a> ');
+        $('#chat-room-list').append('<li id="'+data.key+'"><a class="button" href="chat.html?chatroomID='+data.key+'">'+data.val().name+'</a></li>');
     });
     firebase.database().ref().child('chatroom').on('child_removed', function(data) {
         $('#'+data.key).remove();

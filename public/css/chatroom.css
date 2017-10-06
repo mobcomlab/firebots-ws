@@ -23,7 +23,7 @@ a{
     right: 0px;
     width: 100%;
     height: 50px;
-    background: #4d9afc;
+    background: #F5820B;
     z-index: 100;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -272,7 +272,7 @@ a{
     height: 12px;
     max-height: 12px;
     background: #e5e5e5;
-    box-shadow: inset 0px 50px 0px rgba(82,179,217,0.9), inset 0px -52px 0px #fafafa;
+    box-shadow: inset 0px 50px 0px #F5820B, inset 0px -50px 0px #fafafa;
 }
 
 ::-webkit-scrollbar-thumb {

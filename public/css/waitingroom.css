@@ -1,0 +1,19 @@
+div#rooms {
+    max-width: 80%;
+    margin: 50px auto 0;
+}
+
+ul#chat-room-list {
+    list-style-type: none;
+    padding: 0;
+    line-height: 4.5;
+}
+
+ul#chat-room-list li {
+    display: inline-block;
+}
+
+ul#chat-room-list a.button {
+    background: #FFF;
+    color: #000;
+}

@@ -6,6 +6,7 @@
     <title>FireBots</title>
 
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/waitingroom.css">
     <!-- SWEET ALERT-->
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
     <!-- FONT AWESOME-->
@@ -23,62 +24,64 @@
 
 </head>
 <body>
-
+<div style="width:35%; background: #FFFFFF;margin: 20px auto; padding: 5px;text-align: center;box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
     <div class="button-wrapper">
         <form id="start-chat-form" onsubmit="startChatGeo(); return false;">
             <input class="" type="text" id="chatroomName" placeholder="New room name"/>
             <button class="button" type="button" onclick="startChatGeo(); return false;">Start GeoChat</button>
         </form>
     </div>
+</div>
 
-    <div class="button-wrapper">
-        <h4>Or join an existing chatroom:</h4>
-    </div>
-    <div id="rooms"></div>
+<div id="rooms">
+    <h4>Or join an existing chatroom:</h4>
+    <ul id="chat-room-list">
+    </ul>
+</div>
 
-    <!-- JQUERY-->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- BOOTSTRAP-->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- SWEET ALERT-->
-    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Firebase-->
-    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-messaging.js"></script>
+<!-- JQUERY-->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- BOOTSTRAP-->
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- SWEET ALERT-->
+<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Firebase-->
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase-messaging.js"></script>
 
-    <!-- =============== ONLY PAGE ===============-->
-    <script src='js/firebase-config.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src='js/dialog.js'></script>
-    <script src='js/checkAuth.js'></script>
-    <script src='js/receive_message.js'></script>
-    <script src='js/waitingroom.js'></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            checkAuth();
-            showIndicator();
-            var userID;
-            var url = new URL(window.location.href);
-            // Internet Explorer 6-11
-            var isIE = /*@cc_on!@*/!!document.documentMode;
+<!-- =============== ONLY PAGE ===============-->
+<script src='js/firebase-config.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src='js/dialog.js'></script>
+<script src='js/checkAuth.js'></script>
+<script src='js/receive_message.js'></script>
+<script src='js/waitingroom.js'></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        checkAuth();
+        showIndicator();
+        var userID;
+        var url = new URL(window.location.href);
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/!!document.documentMode;
 
-            // Edge 20+
-            var isEdge = !isIE && !!window.StyleMedia;
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
 
-            if (isIE || isEdge) {
-                userID = url.search.replace('?userID=', '');
-            } else {
-                userID = url.searchParams.get('userID');
-            }
-            if (userID !== null && userID !== '') {
-                observeChatrooms();
-                observeUser(userID);
-            } else {
-                dismissIndicator();
-            }
-        });
-    </script>
+        if(isIE || isEdge) {
+            userID = url.search.replace('?userID=', '');
+        } else {
+            userID = url.searchParams.get('userID');
+        }
+        if(userID !== null && userID !== '') {
+            observeChatrooms();
+            observeUser(userID);
+        } else {
+            dismissIndicator();
+        }
+    });
+</script>
 </body>
 </html>
